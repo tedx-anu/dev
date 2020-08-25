@@ -1,0 +1,64 @@
+<div class="logo">
+    <a class="simple-text">
+        <div class="logo-img">
+            <img src="/assets/img/ravi1-logo.png" />
+        </div>
+        &nbsp;Ravi Printers
+    </a>
+</div>
+<div class="sidebar-wrapper">
+    <div *ngIf="isMobileMenu()">
+        <ul class="nav navbar-nav nav-mobile-menu">
+            <li class="nav-item">
+                <a class="nav-link" href="#pablo">
+                    <i class="material-icons">dashboard</i>
+                    <p>
+                        <span class="d-lg-none d-md-block">Stats</span>
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link" style="cursor: pointer;" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false" (click)="onClickNotifications()">
+                    <i class="material-icons">notifications</i>
+                    <p>
+                        <span class="d-lg-none d-md-block">{{noOfNotifications}} Notifications</span></p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                    <ng-container *ngFor="let item of notifications">
+                        <ng-container *ngIf="item.show == true">
+                            <a class="dropdown-item" href="#">{{item.notification}}</a>
+                        </ng-container>
+                    </ng-container>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link" id="userLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="material-icons">person</i>
+                    <p>
+                        <span class="d-lg-none d-md-block">Account</span>
+                    </p>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userLink">
+                        <a class="dropdown-item" routerLink="/user-profile">
+                            <div>
+                                <img width="30" class="user-image rounded-circle" [src]="user.profilePic" /> &nbsp;
+                                {{user.fullName}}
+                            </div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" routerLink="/user-profile">View Profile</a>
+                        <a class="dropdown-item" (click)="logout()">Sign Out</a>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <ul class="nav">
+        <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
+            <a class="nav-link" [routerLink]="[menuItem.path]">
+                <i class="material-icons">{{menuItem.icon}}</i>
+                <p>{{menuItem.title}}</p>
+            </a>
+        </li>
+    </ul>
+</div>
