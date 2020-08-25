@@ -32,6 +32,7 @@ import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component
 import { NewsComponent } from './news/news.component';
 import { AboutComponent } from './about/about.component';
 import { EventsComponent } from './events/events.component';
+import { VideosComponent } from './videos/videos.component';
 
 export const settings = {timestampsInSnapshots: true};
 
@@ -70,6 +71,7 @@ export const settings = {timestampsInSnapshots: true};
     NewsComponent,
     AboutComponent,
     EventsComponent,
+    VideosComponent,
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
